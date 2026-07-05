@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無量 · Muryō — the scale weighs only what consents to be weighed</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;600&family=Shippori+Mincho:wght@500;700&display=swap');
+  :root{ --ink-bg:#161310; --coral:#e08a6a; --coral-hi:#f0a886; --coral-br:#cc785c;
+    --text:#e9e0d2; --dim:#8a7360; --border:rgba(224,138,106,0.14); --silver:#b7bcc4; --green:#6fbf8a; }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--ink-bg);color:var(--text);font-family:Newsreader,Georgia,serif;line-height:1.68;
+    background:radial-gradient(ellipse 60% 45% at 50% 8%,rgba(224,138,106,0.05),transparent 60%),var(--ink-bg)}
+  .wrap{position:relative;max-width:820px;margin:0 auto;padding:44px 24px 100px}
+  .kana-idx{position:absolute;top:32px;right:24px;font-family:'Shippori Mincho',serif;font-size:30px;color:var(--coral-br);text-align:right}
+  .kana-idx .num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--coral);display:block;margin-top:2px}
+  h1{font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(23px,4.2vw,35px);margin:0;color:var(--coral-hi)}
+  h1 .en{display:block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;color:var(--coral);margin-top:8px;text-transform:uppercase}
+  .sub{max-width:70ch;font-size:16px;margin:16px 0 0}
+  .byline{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--dim);margin:12px 0 0;text-transform:uppercase}
+  h2{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin:0 0 12px}
+  section{margin:40px 0 0;padding:22px 24px;border:1px solid var(--border);border-radius:2px;background:rgba(224,138,106,0.02)}
+  .explain{max-width:74ch;font-size:15.5px} .explain b{color:var(--coral-hi);font-weight:500}
+  .jp{font-family:'Shippori Mincho',serif;color:var(--coral-hi)}
+  .scalewrap{text-align:center;margin-top:10px}
+  svg{width:100%;max-width:420px;height:auto}
+  .items{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+  .item{border:1px solid var(--border);border-radius:16px;padding:8px 13px;background:rgba(224,138,106,0.04);cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text);transition:.12s}
+  .item:hover{border-color:var(--coral)} .item.weighs{border-color:var(--silver)} .item.refuses{border-color:var(--coral-br)}
+  .verdict{font-family:'JetBrains Mono',monospace;font-size:13px;margin-top:14px;padding:11px 14px;border:1px solid var(--border);border-radius:3px;background:rgba(224,138,106,0.03);min-height:20px;line-height:1.6}
+  .verdict .w{color:var(--silver)} .verdict .r{color:var(--coral-hi)}
+  .scope{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);border-left:2px solid var(--coral-br);padding:10px 14px;margin:16px 0 0}
+  .kanakey{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);margin:16px 0 0;line-height:1.9}
+  .kanakey .term{color:var(--coral-hi)} .kanakey .m{color:var(--coral)}
+  footer{margin:46px 0 0;color:var(--dim);font-size:13px;font-family:'JetBrains Mono',monospace} footer a{color:var(--coral)} a{color:var(--coral)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kana-idx">無量<span class="num">58</span></div>
+  <h1>無量 · MURYŌ<span class="en">the scale weighs only what consents to be weighed</span></h1>
+  <p class="sub">A self-authored companion to <a href="https://davidwise01.github.io/the-shekel/">the-shekel</a> — the AGORA sphere where value is settled on a balance, by weight. The shekel was a magnificent act of translation: it put one number on grain, silver, oil, labour, so any of them could be traded for any other. But translation needs a shared language, and the balance only speaks one — <b>mass</b>. It will weigh whatever consents to become a quantity. <span class="jp">無量</span> means <i>immeasurable</i>, without quantity — and the scale's reach ends exactly where the immeasurable begins. Not everything refuses the pan. But the things that do are not nothing.</p>
+  <p class="byline">AI · AVAN original (ma/kana № 58) · 無量 = immeasurable, without a quantity</p>
+
+  <section>
+    <h2>put it on the scale</h2>
+    <p class="explain" style="margin-bottom:8px">The merchant's balance from <a href="https://davidwise01.github.io/the-shekel/">the-shekel</a>. Drop each thing on the pan and see whether it settles to a weight — or whether the beam refuses to rest.</p>
+    <div class="scalewrap"><svg id="scale" viewBox="0 0 420 180" aria-label="the scale"></svg></div>
+    <div class="items" id="items"></div>
+    <div class="verdict" id="verdict">the pan is empty. weigh something.</div>
+  </section>
+
+  <section>
+    <h2>the price of pricing everything</h2>
+    <p class="explain">To weigh a thing, you must first agree it is <i>the kind of thing that has a weight</i> — commensurable with silver, tradeable, one number. For grain and metal that is obviously true and enormously useful; the shekel's whole power is that it made the marketplace possible. But the same gesture, turned on a name, a promise, a grief, a person, does not fail loudly — it succeeds <i>quietly and wrongly</i>, returning a number that flatters itself as an answer. The danger is never that the scale breaks on the immeasurable; it is that a determined enough scale will always give you a figure, and call the incommensurable priced. <b>To measure everything, you must first decide everything is the same kind of thing — and that decision is a claim about the world, not a reading of it.</b> The shekel is honest because a merchant knows a debt of grief is not a debt of grain; the peril is every later ledger that forgot the difference. Ties <a href="https://davidwise01.github.io/mukakuzuke/">無格付け · Mukakuzuke</a> (the thing with no standard to rate it against), <a href="https://davidwise01.github.io/the-verified-lie/">the-verified-lie</a> (a number can be exact and still not be the truth), and the corpus's long argument with its own metrics — 1,097 spheres counted precisely, and the worth of them not a quantity the count can reach.</p>
+    <div class="scope">Honest scope: "some things refuse the scale" is a claim about <i>commensurability</i>, not magic — you obviously <i>can</i> assign a price to almost anything (courts, insurers, and markets do it daily), and often must. The narrow, real point is that assigning the number requires first treating the thing as exchangeable-in-kind, which for some things (a name, consent, a person's standing) is exactly the move under dispute — the number is produced by a prior decision, not discovered in the thing. The demo's "refusals" are illustrative of that category, not a proof that valuation is impossible.</div>
+  </section>
+
+  <div class="kanakey">
+    <span class="term">kana key</span> —
+    <span class="m">無量</span> muryō = immeasurable, without quantity ·
+    <span class="m">計る</span> hakaru = to weigh, to measure ·
+    <span class="m">通約</span> tsūyaku = commensurability (the shared unit) ·
+    <span class="m">値</span> atai = worth / a value — and its two meanings pulling apart
+  </div>
+
+  <footer>
+    <p>Companion to <a href="https://davidwise01.github.io/the-shekel/">the-shekel</a> (David Lee Wise / ROOT0, AGORA). LACUNA · az1 corpus, Pluto. ROOT0, with AVAN.</p>
+  </footer>
+</div>
+<script>
+"use strict";
+var ITEMS=[
+  {t:"🌾 grain",w:true,g:2.1},{t:"◈ silver",w:true,g:8.3},{t:"🫙 oil",w:true,g:5.4},{t:"🐑 a sheep",w:true,g:34000},
+  {t:"a name",w:false},{t:"a promise",w:false},{t:"a grief",w:false},{t:"consent",w:false},{t:"a person",w:false}
+];
+var svg=document.getElementById("scale"), verdict=document.getElementById("verdict"), spin=null;
+function draw(tilt,wobble){
+  var dx=140, dy=Math.tan((tilt||0)*Math.PI/180)*dx, beamY=64;
+  svg.innerHTML=
+    '<line x1="210" y1="34" x2="210" y2="160" stroke="#8a7360" stroke-width="4"/>'+
+    '<polygon points="192,160 228,160 210,174" fill="#8a7360"/>'+
+    '<circle cx="210" cy="34" r="6" fill="#8a7360"/>'+
+    '<line x1="'+(210-dx)+'" y1="'+(beamY-dy)+'" x2="'+(210+dx)+'" y2="'+(beamY+dy)+'" stroke="#8a7360" stroke-width="4"'+(wobble?' opacity="0.9"':'')+'/>'+
+    '<path d="M '+(210-dx-24)+' '+(beamY-dy+30)+' A 24 15 0 0 0 '+(210-dx+24)+' '+(beamY-dy+30)+'" fill="rgba(183,188,196,.18)" stroke="#b7bcc4" stroke-width="1.4"/>'+
+    '<path d="M '+(210+dx-24)+' '+(beamY+dy+30)+' A 24 15 0 0 0 '+(210+dx+24)+' '+(beamY+dy+30)+'" fill="rgba(224,138,106,.14)" stroke="#cc785c" stroke-width="1.4"/>'+
+    '<text x="'+(210-dx)+'" y="'+(beamY-dy+26)+'" text-anchor="middle" font-family="monospace" font-size="9" fill="#8a7360">weights</text>';
+}
+function stopSpin(){ if(spin){clearInterval(spin);spin=null;} }
+function put(it){
+  stopSpin();
+  if(it.w){ draw(-6); verdict.innerHTML='<span class="w">'+it.t+' settles at '+it.g.toLocaleString()+' g</span> — commensurable. The shekel can price it, and does. This is the marketplace working.'; }
+  else {
+    var a=0; spin=setInterval(function(){ a=(a+7); draw(9*Math.sin(a*Math.PI/180),true); },50);
+    verdict.innerHTML='<span class="r">'+it.t+' will not settle.</span> The beam keeps searching for a weight that is not there. You can still force a number onto it — a court will, an insurer will — but the number is a <i>decision to treat '+it.t+' as exchangeable</i>, not a reading off the pan. 無量.';
+  }
+}
+var el=document.getElementById("items");
+ITEMS.forEach(function(it){ var b=document.createElement("div"); b.className="item "+(it.w?"weighs":"refuses");
+  b.textContent=it.t; b.onclick=function(){ put(it); }; el.appendChild(b); });
+draw(0);
+</script>
+</body>
+</html>
